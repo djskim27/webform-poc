@@ -1,0 +1,58 @@
+<div class="row mt-5">
+  <div class="col d-flex justify-content-center">
+    <div class="card">
+      <div class="card-body">
+        <%= form_with url: "/web_form", method: :post do |form| %>
+          <div class="mb-3">
+            <%= form.label :full_name, "Full Name", class: 'form-label' %>
+            <%= form.text_field :full_name, class: 'form-control' %>
+          </div>
+          <div class="mb-3">
+            <%= form.label :sport, "Sport Category", class: 'form-label' %>
+            <%= form.select :sport,
+                            [%w[Basketball basketball],
+                             %w[Football football]],
+                            {include_blank: 'Please select a sport.'},
+                            { class: 'form-select'} %>
+          </div>
+
+          <!-- Basketball Dropdown -->
+          <div id='basketballSelect' class="mb-3 player-dropdown d-none">
+            <%= form.label :basketball, class: 'form-label' %>
+            <%= form.select :basketball,
+                            ['Lebron James',
+                             'Michael Jordan',
+                             'Kobe Bryant'],
+                            {include_blank: 'Please select a player.'},
+                            { class: 'form-select'} %>
+          </div>
+
+          <!-- Football Dropdown -->
+          <div id='footballSelect' class="mb-3 player-dropdown d-none">
+            <%= form.label :football, class: 'form-label' %>
+            <%= form.select :football,
+                            ['Tom Brady',
+                             'Joe Montana',
+                             'Peyton Manning'],
+                            {include_blank: 'Please select a player.'},
+                            { class: 'form-select'} %>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $('select#sport').change(function() {
+      let value = $(this).val();
+
+      $('div.player-dropdown').addClass('d-none');
+
+      if (value.length > 0) {
+          $(`div#${value}Select`).removeClass('d-none');
+      }
+  })
+</script>
