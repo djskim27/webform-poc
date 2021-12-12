@@ -1,24 +1,42 @@
-# README
+##### Prerequisites
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The setups steps expect following tools installed on the system.
 
-Things you may want to cover:
+- Github
+- [Homebrew](https://treehouse.github.io/installation-guides/mac/homebrew)
+- Ruby [3.0.0](https://mac.install.guide/ruby/index.html)
+- Rails [6.1.4](https://learn-rails.com/install-rails-mac/index.html)
+- [Node](https://treehouse.github.io/installation-guides/mac/node-mac.html)
+- [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable)
 
-* Ruby version
+Guide to running existing Rails projects locally [here](https://medium.com/@dyanagi/how-to-run-an-existing-ruby-on-rails-project-after-cloning-a-repository-8535e4f14bc9)
 
-* System dependencies
+##### 1. Check out the repository
 
-* Configuration
+```bash
+git clone git@github.com:djskim27/webform-poc.git
+```
 
-* Database creation
+##### 2. Install all required dependencies
+Install ruby gems via `bundle install` and javascript libraries via `yarn`
 
-* Database initialization
+```ruby
+bundle install
+yarn
+```
 
-* How to run the test suite
+##### 3. Create database.yml file and create+setup the database
 
-* Services (job queues, cache servers, search engines, etc.)
+There is no database setup for this POC app (will need one when authentication is setup)
 
-* Deployment instructions
+##### 4. Start the Rails server
 
-* ...
+You can start the rails server using the command given below.
+
+```ruby
+bundle exec rails s
+```
+
+or just run `rails s`
+
+And now you can visit the site with the URL http://localhost:3000
