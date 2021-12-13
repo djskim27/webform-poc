@@ -40,3 +40,17 @@ bundle exec rails s
 or just run `rails s`
 
 And now you can visit the site with the URL http://localhost:3000
+
+```javascript
+      let value = $(this).val();
+      let $categoryDropdown = $('select#category')
+
+      $categoryDropdown.empty().append(`<option>Please select a category.</option>`)
+
+      if (value) {
+          let categorySelection = choices[value]
+          categorySelection.forEach(function(option){
+              $categoryDropdown.append(`<option value='${option.value}'>${option.label}</option>`)
+          })
+      }
+ ```
